@@ -25,7 +25,6 @@ const Book = () => {
       newDates.checkOut = date;
       setSelectedDate(newDates);
     }
-
     return (
         <div style={{textAlign: 'center'}}>
             <h1>Hello, {loggedInUser.name} Let's book a {bedType} Room.</h1>
