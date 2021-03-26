@@ -26,13 +26,27 @@ const LogIn = () => {
             const {displayName, email} = result.user;
             const signInUser = {name: displayName, email};
             setLoggedInUser(signInUser);
+            storeAuthToken();
             history.replace(from);
-            console.log(token);
+            // console.log(token);
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode, errorMessage);
+        });
+    }
+
+    //Token server
+    const storeAuthToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function(idToken) {
+            // Send token to your backend via HTTPS
+            // console.log(idToken);
+            sessionStorage.setItem('token', idToken);
+        })
+        .catch(function(error) {
+            // Handle error
         });
     }
 
