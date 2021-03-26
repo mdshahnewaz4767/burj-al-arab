@@ -50,6 +50,7 @@ const LogIn = () => {
         });
     }
 
+    
     return (
         <div style={{textAlign: 'center'}}>
             {
